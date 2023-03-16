@@ -1,4 +1,4 @@
-# Goque Instant
+# Go MemShare
 
 [![donation link](https://img.shields.io/badge/buy%20me%20a%20coffee-paypal-blue)](https://paypal.me/shaynejrtaylor?country.x=US&locale.x=en_US)
 
