@@ -1,13 +1,21 @@
 package memshare
 
-import "testing"
+import (
+	"testing"
+)
 
 func Test(t *testing.T){
 	var1 := "test"
 
-	p := Stringify[string](&var1)
+	encKey := RandBytes(16)
 
-	var2 := Parse[string](p)
+	p, err := Stringify[string](&var1, encKey)
+	if err != nil {
+		t.Error(err)
+		return
+	}
+
+	var2 := Parse[string](p, encKey)
 	if var2 == nil {
 		t.Error("failed to parse pointer")
 		return
@@ -36,4 +44,6 @@ func Test(t *testing.T){
 	if *var2 != "test3" {
 		t.Error("var2 failed to be updated by var1")
 	}
+
+	Delete(&var1)
 }
